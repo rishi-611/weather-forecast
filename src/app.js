@@ -6,6 +6,9 @@ const getForecast = require("../src/utils/getForecast");
 
 const app = express();
 
+// setup port for heroku
+const port = process.env.PORT || 3000;
+
 // express config paths
 const publicDir = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -100,4 +103,4 @@ app.get("/*", (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log("Listening to port 3000"));
+app.listen(port, () => console.log("Listening to port" + port));
