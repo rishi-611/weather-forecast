@@ -36,7 +36,7 @@ app.get("/about", (req, res) => {
     title: "About",
     author: "Rishi Dubey",
     message:
-      "On this website, you can get the weather forecast of any location, by simply searching for an address, city or country. ",
+      "This website was created by Rishi Dubey. We use data from Weatherstack and Mapbox to show the weather forecast",
   });
 });
 
@@ -53,7 +53,7 @@ app.get("/weather", (req, res) => {
   const location = req.query.address;
   if (!location) {
     return res.send({
-      Error: "Error! You must provide an address as a query string",
+      Error: "Error! You must provide a location",
     });
   }
 
@@ -72,10 +72,11 @@ app.get("/weather", (req, res) => {
             Error: err,
           });
         }
-
         // if everything goes well
         res.send({
           forecast: `${data.weather_descriptions[0]} in ${positiondata.placeName}. The temperature is ${data.temperature} degree Celsius. There are ${data.humidity}% chances of rain`,
+          image: data.weather_icons[0],
+          visibility: data.visibility,
           author: "Rishi Dubey",
           exactLocation: positiondata.placeName,
           address: location,

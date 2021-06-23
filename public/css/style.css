@@ -81,13 +81,18 @@ a {
   background-color: rgb(19, 19, 19, 0.7) !important;
 }
 
-
-.form-control:focus{
+.form-control:focus {
   border-color: rgb(194, 21, 21);
   box-shadow: none;
 }
 
-.btn:focus{
+.btn:focus {
   border-color: rgb(194, 21, 21);
   box-shadow: none;
+}
+
+#weather-icon {
+  width: 60px;
+  display: none;
+  border-radius: 50%;
 }
